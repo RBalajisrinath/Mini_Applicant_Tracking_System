@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: mini-ats
+    env: node
+    plan: free
+    buildCommand: npm install --prefix server && npm install --prefix client && npm run build --prefix client
+    startCommand: node server/src/seed.js && node server/src/index.js
+    envVars:
+      - key: NODE_VERSION
+        value: 22.14.0
